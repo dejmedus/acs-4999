@@ -1,0 +1,23 @@
+type Weather {
+  id: Int
+  name: String
+  temperature: Float
+  description: String
+  feels_like: Float
+  temp_min: Float
+  temp_max: Float
+  pressure: Float
+  humidity: Float
+  cod: Int
+  message: String
+}
+
+enum Units {
+  standard
+  metric
+  imperial
+}
+
+type Query {
+  getWeather(zip: Int!, units: Units): Weather!
+}
