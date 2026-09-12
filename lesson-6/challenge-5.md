@@ -1,0 +1,7 @@
+- [x] Schema has `type Mutation { ... }` separate from `type Query { ... }`
+- [x] Resolvers object has both `Query: { ... }` and `Mutation: { ... }` keys
+- [x] Each mutation resolver takes `(_, { ...args })` — not just `({ ...args })`
+- [x] `addPet` returns the created pet
+- [x] `updatePet` returns null for an out-of-range id
+- [x] `deletePet` returns the deleted pet (or null if not found)
+- [x] All three mutations tested in Apollo Sandbox with valid and invalid inputs
