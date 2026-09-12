@@ -36,17 +36,7 @@ function App() {
 
   return (
     <div className="Weather">
-      <h2>
-        {error}
-        {weather ? (
-          <>
-            {weather.name} {weather.temperature} {weather.description}
-            {weather.feels_like}
-          </>
-        ) : (
-          "Search for weather data"
-        )}
-      </h2>
+      <Weather weather={weather} error={error} />
 
       <form
         onSubmit={(e) => {
@@ -63,3 +53,19 @@ function App() {
 }
 
 export default App;
+
+function Weather({ weather, error }) {
+  return (
+    <h2>
+      {error}
+      {weather ? (
+        <>
+          {weather.name} {weather.temperature} {weather.description}
+          {weather.feels_like}
+        </>
+      ) : (
+        "Search for weather data"
+      )}
+    </h2>
+  );
+}
