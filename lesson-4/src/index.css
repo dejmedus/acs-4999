@@ -2,10 +2,9 @@
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
+  --border: #e8e6ea;
 
   --sans: system-ui, "Segoe UI", Roboto, sans-serif;
-  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -27,6 +26,7 @@
     --text: #9ca3af;
     --text-h: #f3f4f6;
     --bg: #16171d;
+    --border: #2a2b33;
   }
 }
 
@@ -41,19 +41,55 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-  font-size: 24px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  gap: 1.5em;
 }
 
 form {
   display: flex;
-  gap: 0.4em;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  font-size: 15px;
+}
+form input {
+  font: inherit;
+  color: var(--text-h);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.2em 0.7em;
+  width: 6em;
+}
+form button {
+  font: inherit;
+  color: var(--bg);
+  background: var(--text-h);
+  border: none;
+  border-radius: 8px;
+  padding: 0.25em 1em;
+}
+
+.weather {
+  list-style: none;
+  margin: 2em 0;
+  padding: 0.8em 1.6em;
+  border-radius: 0.4em;
+  background: rgb(239, 251, 255);
+}
+.location {
+  font-size: 15px;
+  color: var(--text);
+  margin: 0 0 0.3em;
+}
+.temp {
+  font-family: var(--sans);
+  font-weight: 500;
+  color: var(--text-h);
+  font-size: 56px;
+  line-height: 1;
+  margin: 0 0 0.4em;
+}
+.desc {
+  font-size: 16px;
+  color: var(--text);
+  margin: 0;
 }

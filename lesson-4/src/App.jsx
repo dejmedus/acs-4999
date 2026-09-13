@@ -26,8 +26,7 @@ function App() {
       });
 
       const { message } = json.data.getWeather;
-      setError(message);
-
+      setError(message ?? null);
       setWeather(json.data.getWeather);
     } catch (err) {
       console.log(err.message);
@@ -35,7 +34,7 @@ function App() {
   }
 
   return (
-    <div className="Weather">
+    <div className="weather-app">
       <Weather weather={weather} error={error} />
 
       <form
@@ -44,8 +43,14 @@ function App() {
           getWeather();
         }}
       >
-        <label>Zip code</label>
-        <input value={zip} onChange={(e) => setZip(e.target.value)} />
+        <label htmlFor="zip">Zip code</label>
+        <input
+          id="zip"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          value={zip}
+          onChange={(e) => setZip(e.target.value)}
+        />
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -53,19 +58,21 @@ function App() {
 }
 
 export default App;
-
 function Weather({ weather, error }) {
   return (
-    <h2>
-      {error}
+    <div className="weather-card">
+      {error && <p className="error">{error}</p>}
       {weather ? (
-        <>
-          {weather.name} {weather.temperature} {weather.description}
-          {weather.feels_like}
-        </>
+        <ul className="weather">
+          <li className="location">{weather.name}</li>
+          <li className="temp">{weather.temperature}°</li>
+          <li className="desc">
+            {weather.description} · feels like {weather.feels_like}°
+          </li>
+        </ul>
       ) : (
-        "Search for weather data"
+        <p className="placeholder">Search for weather data</p>
       )}
-    </h2>
+    </div>
   );
 }

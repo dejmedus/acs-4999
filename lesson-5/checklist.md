@@ -31,7 +31,7 @@
 - **Challenge 5** — Handle data with conditional rendering ✔
 - **Challenge 6** — Make a component to display the weather  ✔
 - **Challenge 7** — Handle errors (invalid zip) ✔
-- **Challenge 8** — Style your work
+- **Challenge 8** — Style your work ✔
 - **Challenge 9** — Use units (radio buttons for metric/imperial)
 - **Challenge 10** — Get current location from the browser
 - **Challenge 11** — Add weather-by-location to your GraphQL API
