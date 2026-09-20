@@ -276,3 +276,30 @@ Use aliases!
 }
 ```
 
+### Lesson 7: Fragments
+
+```
+fragment CharacterInfo on Character {
+  name
+  status
+  species
+}
+
+query {
+  rick: character(id: 1) {
+    ...CharacterInfo
+  }
+  morty: character(id: 2) {
+    ...CharacterInfo
+  }
+  summer: character(id: 3) {
+    ...CharacterInfo
+  }
+  beth: character(id: 4) {
+    ...CharacterInfo
+  }
+  jerry: character(id: 5) {
+    ...CharacterInfo
+  }
+}
+```
