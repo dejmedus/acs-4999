@@ -93,3 +93,7 @@ form button {
   color: var(--text);
   margin: 0;
 }
+
+.error {
+  color: rgb(129, 32, 32);
+}
