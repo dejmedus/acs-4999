@@ -1,4 +1,4 @@
-export default function Weather({ weather, loading, error }) {
+export default function Weather({ weather, loading, error, unit, toggleUnit }) {
   const message = error || weather?.message;
 
   return (
@@ -8,7 +8,12 @@ export default function Weather({ weather, loading, error }) {
       {weather && !weather.message ? (
         <ul className="weather">
           <li className="location">{weather.name}</li>
-          <li className="temp">{weather.temperature}°</li>
+          <li className="temp">
+            {weather.temperature}
+            <span class="unit" onClick={toggleUnit}>
+              °{unit}
+            </span>
+          </li>
           <li className="desc">
             {weather.description} · feels like {weather.feels_like}°
           </li>

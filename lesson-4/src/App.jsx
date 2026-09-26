@@ -5,8 +5,8 @@ import { useState } from "react";
 import Weather from "./components/Weather";
 
 const GET_WEATHER = gql`
-  query GetWeather($zip: Int!) {
-    getWeather(zip: $zip) {
+  query GetWeather($zip: Int!, $units: Units!) {
+    getWeather(zip: $zip, units: $units) {
       name
       temperature
       feels_like
@@ -17,8 +17,14 @@ const GET_WEATHER = gql`
   }
 `;
 
+const Units = {
+  c: "metric",
+  f: "imperial"
+};
+
 function App() {
   const [zip, setZip] = useState("");
+  const [unit, setUnit] = useState(Units.c);
   const [getWeather, { loading, error, data }] = useLazyQuery(GET_WEATHER);
 
   return (
@@ -27,12 +33,14 @@ function App() {
         weather={data?.getWeather}
         loading={loading}
         error={error?.message}
+        unit={unit === Units.c ? "C" : "F"}
+        toggleUnit={() => setUnit((u) => (u === Units.c ? Units.f : Units.c))}
       />
 
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          getWeather({ variables: { zip: Number(zip), units: "metric" } });
+          getWeather({ variables: { zip: Number(zip), units: unit } });
         }}
       >
         <label htmlFor="zip">Zip code</label>
@@ -43,9 +51,6 @@ function App() {
           value={zip}
           onChange={(e) => setZip(e.target.value)}
         />
-        <button type="submit" disabled={loading}>
-          Submit
-        </button>
       </form>
     </div>
   );
