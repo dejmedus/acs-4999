@@ -1,9 +1,9 @@
 type Article {
   id: ID!
   title: String!
-  summary: String!
-  url: String!
-  relatedArticles: [Article!]!
+  summary: String
+  url: String
+  links: [Article!]!
 }
 
 type Path {
@@ -15,19 +15,18 @@ type Path {
 
 type PathNode {
   id: ID!
-  position: Int!
   article: Article!
 }
 
 type Query {
   article(title: String!): Article
   searchArticles(query: String!): [Article!]!
-  Paths: [Path!]!
-  Path(id: ID!): Path
+  paths: [Path!]!
+  path(id: ID!): Path
 }
 
 type Mutation {
   createPath(title: String!): Path!
-  addStep(PathId: ID!, articleTitle: String!): Path!
+  addStep(pathId: ID!, articleTitle: String!): Path!
   deletePath(id: ID!): Boolean!
 }

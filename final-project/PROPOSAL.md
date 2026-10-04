@@ -10,7 +10,7 @@ type Article {
   title: String!
   summary: String!
   url: String!
-  relatedArticles: [Article!]!
+  links: [Article!]!
 }
 
 type Path {
