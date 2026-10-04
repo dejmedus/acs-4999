@@ -274,12 +274,13 @@ function Links({ articles, onPick, disabled }) {
 
 function Article({ pathId }) {
   const { loading, error, data } = useQuery(GET_PATH, {
-    variables: { id: pathId }
+    variables: { id: pathId },
+    errorPolicy: "all"
   });
   const [addStep, { loading: adding, error: addError }] = useMutation(ADD_STEP);
 
   if (loading) return <p className="status">Loading...</p>;
-  if (error) return <p className="status">{error.message}</p>;
+  if (error && !data) return <p className="status">{error.message}</p>;
 
   const steps = data.path.steps.filter(({ article }) => article);
 
