@@ -2,9 +2,9 @@
 
 #### Server
 
-- [x] Apollo Server 4 with ESM (`import`/`export`, `"type": "module"` in package.json)
+- [x] Apollo Server 5* with ESM (`import`/`export`, `"type": "module"` in package.json)
 - [x] At least **3 GraphQL types** (not counting `Query` and `Mutation`)
-- [ ] At least **1 relationship** between types — implemented with a nested resolver
+- [x] At least **1 relationship** between types — implemented with a nested resolver
 - [x] At least **2 queries** (e.g. get one by ID, get all)
 - [x] At least **2 mutations** (e.g. create + update or delete)
 - [x] At least one query accepts an **argument** (e.g. `book(id: ID!)`)
@@ -23,4 +23,4 @@
 - [x] `.gitignore` includes `node_modules` and `.env`
 - [x] No API keys committed to GitHub
 - [x] Schema makes sense — types and fields are named clearly
-- [ ] Resolver structure matches schema (one resolver key per type that has nested fields)
+- [x] Resolver structure matches schema (one resolver key per type that has nested fields)
