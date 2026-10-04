@@ -8,12 +8,17 @@
   --text: #373a3c;
   --border: #dee2e6;
   --rule: #a2a9b1;
+  --carrot-cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext x='0' y='27' font-size='27'%3E%F0%9F%A5%95%3C/text%3E%3C/svg%3E")
+      27 25,
+    auto;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  cursor: var(--carrot-cursor) !important;
 }
 
 body {
@@ -156,7 +161,6 @@ a,
   background: var(--primary);
   border: 1px solid var(--primary);
   border-radius: 0;
-  cursor: pointer;
 }
 .search-btn:hover {
   filter: brightness(0.92);
@@ -186,7 +190,6 @@ a,
   background: none;
   border: 0;
   padding: 0;
-  cursor: pointer;
 }
 .home-link:hover {
   color: var(--blue);
@@ -236,7 +239,6 @@ a,
   background: var(--grey);
   border: 1px solid var(--border);
   border-radius: 0;
-  cursor: pointer;
 }
 .links button:hover:not(:disabled) {
   background: #fff;
@@ -244,7 +246,6 @@ a,
 }
 .links button:disabled {
   opacity: 0.5;
-  cursor: default;
 }
 
 footer {
@@ -281,6 +282,9 @@ footer {
 .icon {
   width: auto;
   height: 28px;
+}
+.rabbit {
+  font-size: 1.5em;
 }
 .link {
   display: flex;
