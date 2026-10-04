@@ -15,7 +15,7 @@ type Path {
 
 type PathNode {
   id: ID!
-  article: Article!
+  article: Article
 }
 
 type Query {
