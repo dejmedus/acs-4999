@@ -11,6 +11,7 @@ const typeDefs = fs.readFileSync(
 );
 
 const WIKI = "https://en.wikipedia.org";
+const headers = { "User-Agent": "Student project" };
 
 async function searchWiki(search, limit = 10) {
   const params = new URLSearchParams({
@@ -21,7 +22,7 @@ async function searchWiki(search, limit = 10) {
     format: "json",
     origin: "*"
   });
-  const res = await fetch(`${WIKI}/w/api.php?${params}`);
+  const res = await fetch(`${WIKI}/w/api.php?${params}`, { headers });
 
   const data = await res.json();
   return (data.query?.search ?? []).map(({ pageid, title }) => ({
@@ -32,7 +33,8 @@ async function searchWiki(search, limit = 10) {
 
 async function fetchArticle(title) {
   const res = await fetch(
-    `${WIKI}/api/rest_v1/page/summary/${encodeURIComponent(title)}`
+    `${WIKI}/api/rest_v1/page/summary/${encodeURIComponent(title)}`,
+    { headers }
   );
   if (!res.ok) return null;
 
@@ -47,7 +49,8 @@ async function fetchArticle(title) {
 
 async function fetchLinks(title, limit = 12) {
   const res = await fetch(
-    `${WIKI}/api/rest_v1/page/html/${encodeURIComponent(title)}`
+    `${WIKI}/api/rest_v1/page/html/${encodeURIComponent(title)}`,
+    { headers }
   );
   if (!res.ok) return [];
 
