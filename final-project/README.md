@@ -1,3 +1,10 @@
+### Wiki Rabbit Hole
+
+Quickly go down Wikipedia rabbit holes
+
+![Wikipedia rabbit hole with article links](./rabbithole.png)
+![AllPaths query in Apollo Studio](./query.png)
+
 #### Local Dev
 
 ```sh
